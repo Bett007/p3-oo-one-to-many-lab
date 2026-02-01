@@ -19,7 +19,7 @@ class Pet:
         Pet.all.append(self)
 
     def set_owner(self, owner):
-        # Import here to avoid circular import problems
+        # IMPORTANT: tests use owner_pet.Owner, not owner.Owner
         from owner_pet import Owner
 
         if not isinstance(owner, Owner):
