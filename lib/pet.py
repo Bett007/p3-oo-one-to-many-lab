@@ -5,6 +5,7 @@ class Pet:
     all = []
 
     def __init__(self, name, pet_type, owner=None):
+        # validate pet_type
         if pet_type not in Pet.PET_TYPES:
             raise Exception("Invalid pet type")
 
@@ -18,7 +19,8 @@ class Pet:
         Pet.all.append(self)
 
     def set_owner(self, owner):
-        from owner import Owner
+        # Import here to avoid circular import problems
+        from owner_pet import Owner
 
         if not isinstance(owner, Owner):
             raise Exception("Owner must be an instance of Owner")
